@@ -18,10 +18,14 @@ public class GugudanServlet extends HttpServlet {
 
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
-		
+
 		int dan = Integer.parseInt(request.getParameter("dan"));
 
 		response.getWriter().println(String.format("<h1>== 구구단 %d단 ==</h1>", dan));
+
+		for (int i = 1; i <= 9; i++) {
+			response.getWriter().println(String.format("<div>%d * %d = %d</div>", dan, i, dan * i));
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
