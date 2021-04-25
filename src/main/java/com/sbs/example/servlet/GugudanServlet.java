@@ -22,11 +22,20 @@ public class GugudanServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
 
-		int dan = Integer.parseInt(request.getParameter("dan"));
+		int dan = 2;
+		int limit = 9;
+		
+		if ( request.getParameter("dan") != null ) {
+			dan = Ut.pi(request.getParameter("dan"), dan);
+		}
+		
+		if ( request.getParameter("limit") != null ) {
+			limit = Ut.pi(request.getParameter("limit"), limit);
+		}
 
 		response.getWriter().println(Ut.f("<h1>== 구구단 %d단 ==</h1>", dan));
 
-		for (int i = 1; i <= 9; i++) {
+		for (int i = 1; i <= limit; i++) {
 			response.getWriter().println(Ut.f("<div>%d * %d = %d</div>", dan, i, dan * i));
 		}
 	}
