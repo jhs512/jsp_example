@@ -2,6 +2,7 @@ package com.sbs.example.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sbs.example.util.Ut;
 
-@WebServlet("/gugudan")
+@WebServlet("/home/gugudan")
 public class GugudanServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -25,11 +26,11 @@ public class GugudanServlet extends HttpServlet {
 		int dan = Ut.pi(request.getParameter("dan"), 2);
 		int limit = Ut.pi(request.getParameter("limit"), 9);
 		
-		response.getWriter().println(Ut.f("<h1>== 구구단 %d단 ==</h1>", dan));
-
-		for (int i = 1; i <= limit; i++) {
-			response.getWriter().println(Ut.f("<div>%d * %d = %d</div>", dan, i, dan * i));
-		}
+		request.setAttribute("dan", dan);
+		request.setAttribute("limit", limit);
+		
+		 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/home/gugudan.jsp");
+         requestDispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

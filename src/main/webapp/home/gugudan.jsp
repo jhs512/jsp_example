@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.sbs.example.util.Ut"%>
 
 <%@ include file="../part/head.jspf"%>
 
 <%
-int dan = Ut.pi(request.getParameter("dan"), 5);
-int limit = Ut.pi(request.getParameter("limit"), 2);
+int dan = (int) request.getAttribute("dan");
+int limit = (int) request.getAttribute("limit");
 %>
 
 <h2>
