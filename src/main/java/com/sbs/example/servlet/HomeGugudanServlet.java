@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sbs.example.util.Ut;
 
 @WebServlet("/home/gugudan")
-public class GugudanServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
+public class HomeGugudanServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -29,7 +27,7 @@ public class GugudanServlet extends HttpServlet {
 		request.setAttribute("dan", dan);
 		request.setAttribute("limit", limit);
 		
-		 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/home/gugudan.jsp");
+		 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/home/gugudan.jsp");
          requestDispatcher.forward(request, response);
 	}
 
