@@ -24,7 +24,7 @@ public class GugudanServlet extends HttpServlet {
 
 		int dan = Ut.pi(request.getParameter("dan"), 2);
 		int limit = Ut.pi(request.getParameter("limit"), 9);
-
+		
 		response.getWriter().println(Ut.f("<h1>== 구구단 %d단 ==</h1>", dan));
 
 		for (int i = 1; i <= limit; i++) {
