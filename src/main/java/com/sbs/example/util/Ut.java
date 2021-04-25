@@ -7,9 +7,8 @@ public class Ut {
 
 	public static int pi(String numeric, int defaultValue) {
 		try {
-			return Integer.parseInt(numeric);			
-		}
-		catch ( NumberFormatException e ) {
+			return Integer.parseInt(numeric);
+		} catch (Exception e) {
 			return defaultValue;
 		}
 	}
