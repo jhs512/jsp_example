@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.sbs.example.util.Ut"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +9,8 @@
 </head>
 <body>
 	<%
-	int dan = 8;
-	int limit = 9;
+	int dan = Ut.pi(request.getParameter("dan"), 5);
+	int limit = Ut.pi(request.getParameter("limit"), 2);
 	%>
 
 	<h1>
